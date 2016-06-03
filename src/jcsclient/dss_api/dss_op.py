@@ -89,15 +89,16 @@ class DSSOp(object):
         url_copy = request_url
         pos = url_copy.find(".com")
         print "HTTP verb: " + str(self.http_method)
+        print "Host: " + url_copy[:(pos + 4)]
         print "Resource path: " + url_copy[(pos + 4):] + "\n"
         print "====================="
         print "    Request Headers"
         print "====================="
         for k in self.http_headers:
             print str(k) + ": " + str(self.http_headers[k])
-        print "\n"
-
-        print "Response Status: " + str(resp.status_code) + "\n"
+        print "\n====================="
+        print "Response Status = " + str(resp.status_code)
+        print "=====================\n"
         print "====================="
         print "   Response Headers"
         print "====================="
