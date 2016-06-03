@@ -86,6 +86,10 @@ class DSSOp(object):
         # make request
         resp = requests.request(self.http_method, request_url, headers = self.http_headers, verify = self.is_secure_request)
 
+        url_copy = request_url
+        pos = url_copy.find(".com")
+        print "HTTP verb: " + str(self.http_method)
+        print "Resource path: " + url_copy[(pos + 4):] + "\n"
         print "====================="
         print "    Request Headers"
         print "====================="
@@ -93,6 +97,7 @@ class DSSOp(object):
             print str(k) + ": " + str(self.http_headers[k])
         print "\n"
 
+        print "Response Status: " + str(resp.status_code) + "\n"
         print "====================="
         print "   Response Headers"
         print "====================="
